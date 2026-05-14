@@ -14,13 +14,14 @@
     }
 
     body{
-        height:100vh;
-        overflow:hidden;
+        min-height:100vh;
+        overflow-x:hidden;
         background: linear-gradient(135deg, #ffd6e7, #ffeef5, #fff8fc);
         display:flex;
         justify-content:center;
         align-items:center;
         position:relative;
+        padding:40px 180px 40px 40px;
     }
 
     /* Bolhinhas */
@@ -49,7 +50,7 @@
 
     .card{
         width:90%;
-        max-width:900px;
+        max-width:950px;
         min-height:600px;
         background:rgba(255,255,255,0.22);
         border:1px solid rgba(255,255,255,0.35);
@@ -58,7 +59,7 @@
         padding:50px;
         position:relative;
         box-shadow:0 10px 40px rgba(0,0,0,0.12);
-        overflow:hidden;
+        overflow:visible;
     }
 
     .title{
@@ -83,23 +84,27 @@
         color:#ff4f88;
     }
 
+    /* TIMERS FORA DO BALÃO */
     .timers{
         position:absolute;
-        right:30px;
-        bottom:30px;
+        top:50%;
+        right:-260px;
+        transform:translateY(-50%);
         display:flex;
         flex-direction:column;
         gap:20px;
         text-align:right;
+        z-index:5;
     }
 
     .timer-box{
         background:rgba(255,255,255,0.35);
         padding:16px 18px;
         border-radius:18px;
-        backdrop-filter: blur(8px);
+        backdrop-filter: blur(10px);
         border:1px solid rgba(255,255,255,0.3);
         min-width:320px;
+        box-shadow:0 8px 25px rgba(0,0,0,0.08);
     }
 
     .timer-title{
@@ -146,10 +151,24 @@
         }
     }
 
-    @media(max-width:700px){
+    @media(max-width:1200px){
+
+        body{
+            padding:30px;
+        }
+
+        .timers{
+            position:relative;
+            top:auto;
+            right:auto;
+            transform:none;
+            margin-top:40px;
+            align-items:center;
+            text-align:center;
+        }
 
         .card{
-            padding:35px 22px 150px;
+            padding:35px 22px 40px;
         }
 
         .message{
@@ -157,14 +176,10 @@
             line-height:1.8;
         }
 
-        .timers{
-            left:20px;
-            right:20px;
-            bottom:20px;
-        }
-
         .timer-box{
             min-width:auto;
+            width:100%;
+            max-width:400px;
         }
 
         .footer-date{
@@ -204,6 +219,7 @@
         e você é uma delas. ❤️
     </div>
 
+    <!-- TIMERS -->
     <div class="timers">
 
         <div class="timer-box">
